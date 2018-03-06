@@ -1,5 +1,5 @@
 # ConfCLI
-####Client for GetMeConf server
+#### Client for GetMeConf server
 
 To run ConfCli first build binary file from client.go. Then use following commands and flags:
 
