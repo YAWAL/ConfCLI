@@ -16,8 +16,6 @@ import (
 const trueRecord = "true"
 const falseRecord = "false"
 
-
-
 func readConfig(fileName string) ([][]string) {
 	file, err := os.OpenFile(fileName, os.O_RDONLY, 0666)
 	if err != nil {
@@ -109,10 +107,11 @@ func createByteConfig(fileName string) []byte {
 	}
 	return nil
 }
+
 var createCmd = &cobra.Command{
-	Use:"create",
-	Short:"create config command",
-	Long:`create is a command for creating config and persist it to the database`,
+	Use:   "create",
+	Short: "create config command",
+	Long:  `create is a command for creating config and persist it to the database`,
 	Run: func(cmd *cobra.Command, args []string) {
 		conn, err := grpc.Dial(address, grpc.WithInsecure())
 		log.Printf("State: %v", conn.GetState())
@@ -122,7 +121,7 @@ var createCmd = &cobra.Command{
 		defer conn.Close()
 		client := api.NewConfigServiceClient(conn)
 		config := createByteConfig(fileName)
-		resp, err := client.CreateConfig(context.Background(), &api.Config{Config: config, ConfigType: *configType})
+		resp, err := client.CreateConfig(context.Background(), &api.Config{Config: config, ConfigType: configType})
 		if err != nil {
 			log.Printf("Error during client.CreateConfig has occurred: %v", err)
 		}
@@ -130,23 +129,4 @@ var createCmd = &cobra.Command{
 			log.Printf("Error during creating config has occurred: %v responce status: %v", err, resp.Status)
 		}
 	},
-}
-
-func SentConfigToServer(fileName string) {
-
-	conn, err := grpc.Dial(address, grpc.WithInsecure())
-	log.Printf("State: %v", conn.GetState())
-	if err != nil {
-		log.Fatalf("Dial error has occurred: %v", err)
-	}
-	defer conn.Close()
-	client := api.NewConfigServiceClient(conn)
-	config := createByteConfig(fileName)
-	resp, err := client.CreateConfig(context.Background(), &api.Config{Config: config, ConfigType: *configType})
-	if err != nil {
-		log.Printf("Error during client.CreateConfig has occurred: %v", err)
-	}
-	if resp.Status != "OK" {
-		log.Printf("Error during creating config has occurred: %v responce status: %v", err, resp.Status)
-	}
 }
