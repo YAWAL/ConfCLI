@@ -51,11 +51,11 @@ func createByteConfig(fileName string) []byte {
 		}
 		mongocnf.Host = records[0][2]
 		mongocnf.Port = records[0][3]
-		if bytesMongo, err := json.Marshal(mongocnf); err == nil {
-			return bytesMongo
-		} else {
+		bytesMongo, err := json.Marshal(mongocnf)
+		if err != nil {
 			log.Printf("Error during converting Mongodb structure to []byte has occurred: %v", err)
 		}
+		return bytesMongo
 
 	case "tempcnf.csv":
 		var tempcnf database.Tempconfig
@@ -73,11 +73,12 @@ func createByteConfig(fileName string) []byte {
 		if records[0][4] == falseRecord {
 			tempcnf.LegasyExplorer = false
 		}
-		if bytesTempcnf, err := json.Marshal(tempcnf); err == nil {
-			return bytesTempcnf
-		} else {
+		bytesTempcnf, err := json.Marshal(tempcnf);
+		if err != nil {
 			log.Printf("Error during converting Tempconfig structure to []byte has occurred: %v", err)
 		}
+		return bytesTempcnf
+
 	case "tscnf.csv":
 		var tscnf database.Tsconfig
 		tscnf.Module = records[0][0]
@@ -97,11 +98,12 @@ func createByteConfig(fileName string) []byte {
 			log.Printf("field Excluding should be integer, but is: %T", records[0][3])
 		}
 		tscnf.Excluding = excluding
-		if bytesTscnf, err := json.Marshal(tscnf); err == nil {
-			return bytesTscnf
-		} else {
+		bytesTscnf, err := json.Marshal(tscnf)
+		if err != nil {
 			log.Printf("Error during converting Tsconfig structure to []byte has occurred: %v", err)
 		}
+		return bytesTscnf
+
 	default:
 		log.Printf("Cant find file: %v", fileName)
 	}

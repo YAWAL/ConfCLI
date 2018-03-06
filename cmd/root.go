@@ -30,6 +30,7 @@ func init() {
 	rootCmd.AddCommand(createCmd, deleteCmd, readCmd, updateCmd)
 }
 
+// Execute starts CLI
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatalf("Error during execution client: %v", err)

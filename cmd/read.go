@@ -87,8 +87,8 @@ func retrieveConfigs(client api.ConfigServiceClient) error {
 			if err != nil {
 				log.Fatalf("Unmarshal mongodb err: %v", err)
 			}
-			fileName := mongodb.Domain
-			writeFile(config.Config, fileName, outPath)
+			flName := mongodb.Domain
+			writeFile(config.Config, flName, outPath)
 
 		case "tempconfig":
 			var tempconfig database.Tempconfig
@@ -96,8 +96,8 @@ func retrieveConfigs(client api.ConfigServiceClient) error {
 			if err != nil {
 				log.Fatalf("Unmarshal tempconfig err: %v", err)
 			}
-			fileName := tempconfig.RestApiRoot
-			writeFile(config.Config, fileName, outPath)
+			flName := tempconfig.RestApiRoot
+			writeFile(config.Config, flName, outPath)
 
 		case "tsconfig":
 			var tsconfig database.Tsconfig
@@ -105,8 +105,8 @@ func retrieveConfigs(client api.ConfigServiceClient) error {
 			if err != nil {
 				log.Fatalf("Unmarshal tsconfig err: %v", err)
 			}
-			fileName := tsconfig.Module
-			writeFile(config.Config, fileName, outPath)
+			flName := tsconfig.Module
+			writeFile(config.Config, flName, outPath)
 
 		default:
 			log.Fatalf("Config: %v does not exist", configType)
