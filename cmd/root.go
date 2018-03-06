@@ -14,6 +14,7 @@ var rootCmd = &cobra.Command{
 	},
 }
 
+
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatalf("Error during execution client: %v", err)
