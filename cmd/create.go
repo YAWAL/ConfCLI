@@ -7,10 +7,10 @@ import (
 	"github.com/YAWAL/GetMeConf/database"
 	"strconv"
 	"google.golang.org/grpc"
-	"github.com/YAWAL/GetMeConf/api"
 	"golang.org/x/net/context"
 	"encoding/json"
 	"github.com/spf13/cobra"
+	"github.com/YAWAL/ConfCLI/api"
 )
 
 const trueRecord = "true"

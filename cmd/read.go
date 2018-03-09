@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"github.com/YAWAL/GetMeConf/database"
 	"golang.org/x/net/context"
-	"github.com/YAWAL/GetMeConf/api"
+	"github.com/YAWAL/ConfCLI/api"
 	"google.golang.org/grpc"
 
 	"github.com/spf13/cobra"
