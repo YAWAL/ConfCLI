@@ -39,6 +39,12 @@
   version = "v1.0.0"
 
 [[projects]]
+  name = "github.com/inconshreveable/mousetrap"
+  packages = ["."]
+  revision = "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75"
+  version = "v1.0"
+
+[[projects]]
   name = "github.com/jinzhu/gorm"
   packages = ["."]
   revision = "6ed508ec6a4ecb3531899a69cbc746ccf65a4166"
@@ -70,6 +76,18 @@
   packages = ["."]
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
   version = "v0.8.0"
+
+[[projects]]
+  name = "github.com/spf13/cobra"
+  packages = ["."]
+  revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
+  version = "v0.0.1"
+
+[[projects]]
+  name = "github.com/spf13/pflag"
+  packages = ["."]
+  revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
+  version = "v1.0.0"
 
 [[projects]]
   name = "github.com/ugorji/go"
@@ -175,6 +193,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f9f60ccab04e28b0e442ddf3bfdeee9eea7fb668b981f3b179b116821979dd50"
+  inputs-digest = "3f304a3244f7c30e9f49042f29292e7de68be0bbddb25780deda7978cc120c4e"
   solver-name = "gps-cdcl"
   solver-version = 1

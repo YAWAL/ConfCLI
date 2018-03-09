@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"encoding/csv"
@@ -10,6 +10,7 @@ import (
 	"github.com/YAWAL/GetMeConf/api"
 	"golang.org/x/net/context"
 	"encoding/json"
+	"github.com/spf13/cobra"
 )
 
 const trueRecord = "true"
@@ -50,11 +51,11 @@ func createByteConfig(fileName string) []byte {
 		}
 		mongocnf.Host = records[0][2]
 		mongocnf.Port = records[0][3]
-		if bytesMongo, err := json.Marshal(mongocnf); err == nil {
-			return bytesMongo
-		} else {
+		bytesMongo, err := json.Marshal(mongocnf)
+		if err != nil {
 			log.Printf("Error during converting Mongodb structure to []byte has occurred: %v", err)
 		}
+		return bytesMongo
 
 	case "tempcnf.csv":
 		var tempcnf database.Tempconfig
@@ -72,11 +73,12 @@ func createByteConfig(fileName string) []byte {
 		if records[0][4] == falseRecord {
 			tempcnf.LegasyExplorer = false
 		}
-		if bytesTempcnf, err := json.Marshal(tempcnf); err == nil {
-			return bytesTempcnf
-		} else {
+		bytesTempcnf, err := json.Marshal(tempcnf);
+		if err != nil {
 			log.Printf("Error during converting Tempconfig structure to []byte has occurred: %v", err)
 		}
+		return bytesTempcnf
+
 	case "tscnf.csv":
 		var tscnf database.Tsconfig
 		tscnf.Module = records[0][0]
@@ -96,32 +98,37 @@ func createByteConfig(fileName string) []byte {
 			log.Printf("field Excluding should be integer, but is: %T", records[0][3])
 		}
 		tscnf.Excluding = excluding
-		if bytesTscnf, err := json.Marshal(tscnf); err == nil {
-			return bytesTscnf
-		} else {
+		bytesTscnf, err := json.Marshal(tscnf)
+		if err != nil {
 			log.Printf("Error during converting Tsconfig structure to []byte has occurred: %v", err)
 		}
+		return bytesTscnf
+
 	default:
 		log.Printf("Cant find file: %v", fileName)
 	}
 	return nil
 }
 
-func sentConfigToServer(fileName string) {
-
-	conn, err := grpc.Dial(address, grpc.WithInsecure())
-	log.Printf("State: %v", conn.GetState())
-	if err != nil {
-		log.Fatalf("Dial error has occurred: %v", err)
-	}
-	defer conn.Close()
-	client := api.NewConfigServiceClient(conn)
-	config := createByteConfig(fileName)
-	resp, err := client.CreateConfig(context.Background(), &api.Config{Config: config, ConfigType: *configType})
-	if err != nil {
-		log.Printf("Error during client.CreateConfig has occurred: %v", err)
-	}
-	if resp.Status != "OK" {
-		log.Printf("Error during creating config has occurred: %v responce status: %v", err, resp.Status)
-	}
+var createCmd = &cobra.Command{
+	Use:   "create",
+	Short: "create config command",
+	Long:  `create is a command for creating config and persist it to the database`,
+	Run: func(cmd *cobra.Command, args []string) {
+		conn, err := grpc.Dial(address, grpc.WithInsecure())
+		log.Printf("State: %v", conn.GetState())
+		if err != nil {
+			log.Fatalf("Dial error has occurred: %v", err)
+		}
+		defer conn.Close()
+		client := api.NewConfigServiceClient(conn)
+		config := createByteConfig(fileName)
+		resp, err := client.CreateConfig(context.Background(), &api.Config{Config: config, ConfigType: configType})
+		if err != nil {
+			log.Printf("Error during client.CreateConfig has occurred: %v", err)
+		}
+		if resp.Status != "OK" {
+			log.Printf("Error during creating config has occurred: %v responce status: %v", err, resp.Status)
+		}
+	},
 }
