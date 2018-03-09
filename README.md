@@ -1,6 +1,8 @@
 # ConfCLI
 #### Client for GetMeConf server
 
+[![Build Status](https://travis-ci.org/YAWAL/ConfCLI.svg?branch=master)](https://travis-ci.org/YAWAL/ConfCLI)
+
 To run ConfCLI first build binary file from client.go. Then use following commands and flags:
 
 - command **create** creates new config (reads csv file with config data and
