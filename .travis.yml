@@ -3,6 +3,6 @@ language: go
 go:
   - 1.9.x
 
-install: make dependencies
+script: make dependencies
 
 script: make install-helpers
