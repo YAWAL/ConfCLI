@@ -27,7 +27,7 @@
 
 [[constraint]]
   name = "github.com/YAWAL/GetMeConf"
-  version = "3.0.0"
+  branch = "master"
 
 [[constraint]]
   name = "github.com/gin-gonic/gin"
