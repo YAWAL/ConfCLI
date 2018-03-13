@@ -9,6 +9,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/spf13/cobra"
+	"github.com/YAWAL/GetMeConf/entities"
 )
 
 var readCmd = &cobra.Command{
@@ -81,7 +82,7 @@ func retrieveConfigs(client api.ConfigServiceClient) error {
 
 		switch configType {
 		case "mongodb":
-			var mongodb database.Mongodb
+			var mongodb entities.Mongodb
 			err := json.Unmarshal(config.Config, &mongodb)
 			if err != nil {
 				log.Fatalf("Unmarshal mongodb err: %v", err)
@@ -90,7 +91,7 @@ func retrieveConfigs(client api.ConfigServiceClient) error {
 			writeFile(config.Config, flName, outPath)
 
 		case "tempconfig":
-			var tempconfig database.Tempconfig
+			var tempconfig entities.Tempconfig
 			err := json.Unmarshal(config.Config, &tempconfig)
 			if err != nil {
 				log.Fatalf("Unmarshal tempconfig err: %v", err)
@@ -99,7 +100,7 @@ func retrieveConfigs(client api.ConfigServiceClient) error {
 			writeFile(config.Config, flName, outPath)
 
 		case "tsconfig":
-			var tsconfig database.Tsconfig
+			var tsconfig entities.Tsconfig
 			err := json.Unmarshal(config.Config, &tsconfig)
 			if err != nil {
 				log.Fatalf("Unmarshal tsconfig err: %v", err)
