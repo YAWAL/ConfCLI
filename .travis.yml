@@ -5,6 +5,7 @@ go:
 
 install:
   - go get -u github.com/golang/dep/...
+  - go get github.com/YAWAL/GetMeConf
   - dep ensure
 
 script: make tests
