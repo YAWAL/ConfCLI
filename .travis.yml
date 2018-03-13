@@ -3,6 +3,8 @@ language: go
 go:
   - 1.9.x
 
-script: make dependencies
+install:
+  - go get -u github.com/golang/dep/...
+  - dep ensure
 
-script: make install-helpers
+script: make tests

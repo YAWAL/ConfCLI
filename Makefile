@@ -16,3 +16,6 @@ install-helpers:
 	gometalinter --install
 	echo "Installing Dep"
 	curl    https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+tests:
+	cd cmd && go test
