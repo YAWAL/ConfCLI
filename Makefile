@@ -18,4 +18,5 @@ install-helpers:
 	curl    https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 tests:
-	cd cmd && go test
+	echo "Tests"
+	go test ./cmd
