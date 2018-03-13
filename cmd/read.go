@@ -4,7 +4,6 @@ import (
 	"log"
 	"io"
 	"encoding/json"
-	"github.com/YAWAL/GetMeConf/database"
 	"golang.org/x/net/context"
 	"github.com/YAWAL/ConfCLI/api"
 	"google.golang.org/grpc"

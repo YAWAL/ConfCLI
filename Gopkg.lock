@@ -3,9 +3,9 @@
 
 [[projects]]
   name = "github.com/YAWAL/GetMeConf"
-  packages = ["database"]
-  revision = "0d4145180eac6dd3e8ae7703300894bdf7b2844f"
-  version = "v3.0.0"
+  packages = ["entities"]
+  revision = "c1a23ba17d141ad91d23e854588951e8f561e9d1"
+  version = "v4.0.0"
 
 [[projects]]
   name = "github.com/golang/protobuf"
@@ -24,27 +24,6 @@
   packages = ["."]
   revision = "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75"
   version = "v1.0"
-
-[[projects]]
-  name = "github.com/jinzhu/gorm"
-  packages = ["."]
-  revision = "6ed508ec6a4ecb3531899a69cbc746ccf65a4166"
-  version = "v1.9.1"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/jinzhu/inflection"
-  packages = ["."]
-  revision = "04140366298a54a039076d798123ffa108fff46c"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/lib/pq"
-  packages = [
-    ".",
-    "oid"
-  ]
-  revision = "88edab0803230a3898347e77b474f8c1820a1f20"
 
 [[projects]]
   name = "github.com/spf13/cobra"
@@ -129,21 +108,9 @@
   revision = "8e4536a86ab602859c20df5ebfd0bd4228d08655"
   version = "v1.10.0"
 
-[[projects]]
-  name = "gopkg.in/gormigrate.v1"
-  packages = ["."]
-  revision = "21b0b93e8253d575d9185974835423f98d30158d"
-  version = "v1.2.0"
-
-[[projects]]
-  name = "gopkg.in/yaml.v2"
-  packages = ["."]
-  revision = "7f97868eec74b32b0982dd158a51a446d1da7eb5"
-  version = "v2.1.1"
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "bcc31171b64d918506b59ed828732f734977d295d9f544865dd6e57c09a0ab29"
+  inputs-digest = "752a59d6e57ba998c7a410a98ba52410c6beb2ac4d412d0355ffd2bb8384fec5"
   solver-name = "gps-cdcl"
   solver-version = 1
