@@ -4,13 +4,13 @@ import (
 	"encoding/csv"
 	"os"
 	"log"
-	"github.com/YAWAL/GetMeConf/database"
 	"strconv"
 	"google.golang.org/grpc"
 	"golang.org/x/net/context"
 	"encoding/json"
 	"github.com/spf13/cobra"
 	"github.com/YAWAL/ConfCLI/api"
+	"github.com/YAWAL/GetMeConf/database"
 )
 
 const trueRecord = "true"
