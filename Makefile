@@ -1,5 +1,3 @@
-#export SERVICE_PORT=3000
-
 .PHONY: dependencies
 dependencies:
 		echo "Installing dependencies"
@@ -16,3 +14,7 @@ install-helpers:
 	gometalinter --install
 	echo "Installing Dep"
 	curl    https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+tests:
+	echo "Tests"
+	go test ./cmd

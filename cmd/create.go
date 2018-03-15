@@ -4,13 +4,13 @@ import (
 	"encoding/csv"
 	"os"
 	"log"
-	"github.com/YAWAL/GetMeConf/database"
 	"strconv"
 	"google.golang.org/grpc"
 	"golang.org/x/net/context"
 	"encoding/json"
 	"github.com/spf13/cobra"
-	"github.com/YAWAL/ConfCLI/api"
+	"github.com/YAWAL/GetMeConfAPI/api"
+	"github.com/YAWAL/GetMeConf/entities"
 )
 
 const trueRecord = "true"
@@ -36,7 +36,7 @@ func createByteConfig(fileName string) []byte {
 	records := readConfig(fileName)
 	switch fileName {
 	case "mongo.csv":
-		var mongocnf database.Mongodb
+		var mongocnf entities.Mongodb
 		mongocnf.Domain = records[0][0]
 
 		if records[0][1] != trueRecord && records[0][1] != falseRecord {
@@ -58,7 +58,7 @@ func createByteConfig(fileName string) []byte {
 		return bytesMongo
 
 	case "tempcnf.csv":
-		var tempcnf database.Tempconfig
+		var tempcnf entities.Tempconfig
 		tempcnf.RestApiRoot = records[0][0]
 		tempcnf.Host = records[0][1]
 		tempcnf.Port = records[0][2]
@@ -80,7 +80,7 @@ func createByteConfig(fileName string) []byte {
 		return bytesTempcnf
 
 	case "tscnf.csv":
-		var tscnf database.Tsconfig
+		var tscnf entities.Tsconfig
 		tscnf.Module = records[0][0]
 		tscnf.Target = records[0][1]
 		if records[0][2] != trueRecord && records[0][2] != falseRecord {

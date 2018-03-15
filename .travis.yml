@@ -1,7 +1,10 @@
 language: go
 
 go:
-  - "1.9.x"
-  - "1.10.x"
+  - 1.9.x
 
-script: make install-helpers
+install:
+  - go get -u github.com/golang/dep/...
+  - dep ensure
+
+script: make tests

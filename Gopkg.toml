@@ -27,15 +27,15 @@
 
 [[constraint]]
   name = "github.com/YAWAL/GetMeConf"
-  version = "3.0.0"
+  version = "4.0.0"
 
 [[constraint]]
-  name = "github.com/gin-gonic/gin"
-  version = "1.2.0"
+  name = "github.com/golang/protobuf"
+  version = "1.0.0"
 
 [[constraint]]
-  name = "github.com/pkg/errors"
-  version = "0.8.0"
+  name = "github.com/spf13/cobra"
+  version = "0.0.1"
 
 [[constraint]]
   branch = "master"

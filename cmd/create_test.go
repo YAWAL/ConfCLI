@@ -3,8 +3,8 @@ package cmd
 import (
 	"reflect"
 	"testing"
-	"github.com/YAWAL/GetMeConf/entities"
 	"encoding/json"
+	"github.com/YAWAL/GetMeConf/entities"
 )
 
 const (
