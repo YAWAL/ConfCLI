@@ -1,5 +1,3 @@
-#export SERVICE_PORT=3000
-
 .PHONY: dependencies
 dependencies:
 		echo "Installing dependencies"
