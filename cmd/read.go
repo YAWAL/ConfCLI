@@ -5,7 +5,7 @@ import (
 	"io"
 	"encoding/json"
 	"golang.org/x/net/context"
-	"github.com/YAWAL/ConfCLI/api"
+	"github.com/YAWAL/GetMeConfAPI/api"
 	"google.golang.org/grpc"
 
 	"github.com/spf13/cobra"

@@ -3,7 +3,7 @@ package cmd
 import (
 	"log"
 	"google.golang.org/grpc"
-	"github.com/YAWAL/ConfCLI/api"
+	"github.com/YAWAL/GetMeConfAPI/api"
 	"golang.org/x/net/context"
 	"github.com/spf13/cobra"
 )

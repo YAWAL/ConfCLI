@@ -9,7 +9,7 @@ import (
 	"golang.org/x/net/context"
 	"encoding/json"
 	"github.com/spf13/cobra"
-	"github.com/YAWAL/ConfCLI/api"
+	"github.com/YAWAL/GetMeConfAPI/api"
 	"github.com/YAWAL/GetMeConf/entities"
 )
 
