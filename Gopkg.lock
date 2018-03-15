@@ -8,6 +8,12 @@
   version = "v4.0.0"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/YAWAL/GetMeConfAPI"
+  packages = ["api"]
+  revision = "cd940b4ff6b465d0e5f0e2a972dba98ce65c91f7"
+
+[[projects]]
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
@@ -111,6 +117,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "752a59d6e57ba998c7a410a98ba52410c6beb2ac4d412d0355ffd2bb8384fec5"
+  inputs-digest = "34f909e0ba798ec5e7c9d0e42bba7f1a027923a8a9c950fb2f40da2e264630fa"
   solver-name = "gps-cdcl"
   solver-version = 1
