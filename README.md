@@ -1,7 +1,7 @@
 # ConfCLI
 #### Client for GetMeConf server
 
-[![Build Status](https://travis-ci.org/YAWAL/ConfCLI.svg?branch=master)](https://travis-ci.org/YAWAL/ConfCLI)
+[![Build Status](https://travis-ci.org/YAWAL/ConfCLI.svg?branch=master)](https://travis-ci.org/YAWAL/ConfCLI) [![Go Report Card](https://goreportcard.com/badge/github.com/YAWAL/ConfCLI)](https://goreportcard.com/report/github.com/YAWAL/ConfCLI)
 
 To run ConfCLI first build binary file from client.go. Then use following commands and flags:
 
