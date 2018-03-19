@@ -25,7 +25,7 @@ var deleteCmd = &cobra.Command{
 			log.Printf("Error during client.DeleteConfig has occurred: %v", err)
 		}
 		if resp.Status == "" {
-			log.Printf("Responce status is empty: %v", resp.Status)
+			log.Printf("Response status is empty: %v", resp.Status)
 		}
 	},
 }

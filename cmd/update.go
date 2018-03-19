@@ -26,8 +26,8 @@ var updateCmd = &cobra.Command{
 			log.Printf("Error during client.CreateConfig has occurred: %v", err)
 		}
 		if resp.Status != "OK" {
-			log.Printf("Error during creating config has occurred: %v responce status: %v", err, resp.Status)
+			log.Printf("Error during creating config has occurred: %v response status: %v", err, resp.Status)
 		}
-		log.Printf("Responce: %v", resp.Status)
+		log.Printf("Response: %v", resp.Status)
 	},
 }

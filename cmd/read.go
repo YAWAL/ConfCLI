@@ -18,7 +18,7 @@ var readCmd = &cobra.Command{
 	Long:  `read configs from database`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if configName == "" && configType == "" {
-			log.Fatal("Can't proccess => config name and config type are empty")
+			log.Fatal("Can't process => config name and config type are empty")
 		}
 
 		log.Printf("Start checking input data:\n Config name: %v\n Config type : %v\n Output path: %v\nProcessing ...", configName, configType, outPath)
