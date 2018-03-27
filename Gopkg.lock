@@ -2,10 +2,10 @@
 
 
 [[projects]]
+  branch = "master"
   name = "github.com/YAWAL/GetMeConf"
-  packages = ["entities"]
-  revision = "c1a23ba17d141ad91d23e854588951e8f561e9d1"
-  version = "v4.0.0"
+  packages = ["entitie"]
+  revision = "999df3ec7d223133dbf9bfec198ef1b9a5e49b00"
 
 [[projects]]
   branch = "master"
@@ -55,7 +55,7 @@
     "lex/httplex",
     "trace"
   ]
-  revision = "803fdb99c0f72e493c28ef2099d250a9c989d8ff"
+  revision = "6078986fec03a1dcc236c34816c71b0e05018fda"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -82,7 +82,7 @@
   branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
-  revision = "df60624c1e9b9d2973e889c7a1cff73155da81c4"
+  revision = "ab0870e398d5dd054b868c0db1481ab029b9a9f2"
 
 [[projects]]
   name = "google.golang.org/grpc"
@@ -117,6 +117,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "34f909e0ba798ec5e7c9d0e42bba7f1a027923a8a9c950fb2f40da2e264630fa"
+  inputs-digest = "0422cf4be25b66023d13b9249e15d7b459cfb77e52448d6792d2a3194b240909"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -26,12 +26,12 @@
 
 
 [[constraint]]
+  branch = "master"
   name = "github.com/YAWAL/GetMeConf"
-  version = "4.0.0"
 
 [[constraint]]
-  name = "github.com/golang/protobuf"
-  version = "1.0.0"
+  branch = "master"
+  name = "github.com/YAWAL/GetMeConfAPI"
 
 [[constraint]]
   name = "github.com/spf13/cobra"
