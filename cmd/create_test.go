@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 	"encoding/json"
-	"github.com/YAWAL/GetMeConf/entities"
+	"github.com/YAWAL/GetMeConf/entitie"
 )
 
 const (
@@ -13,10 +13,10 @@ const (
 	tsConfig   = "tscnf.csv"
 )
 
-var mongoWantStruct = entities.Mongodb{Domain: "mongotest", Mongodb: true, Host: "mongo_test", Port: "mongoTest"}
-var tempWantStruct = entities.Tempconfig{RestApiRoot: "tempconfigtest", Host: "tempconfig_test", Port: "tempConfigTest",
+var mongoWantStruct = entitie.Mongodb{Domain: "mongotest", Mongodb: true, Host: "mongo_test", Port: "mongoTest"}
+var tempWantStruct = entitie.Tempconfig{RestApiRoot: "tempconfigtest", Host: "tempconfig_test", Port: "tempConfigTest",
 	Remoting: "tempconfigtest", LegasyExplorer: false}
-var tsWantStruct = entities.Tsconfig{Module: "tscnftest", Target: "tscnf_test", SourceMap: false, Excluding: 11}
+var tsWantStruct = entitie.Tsconfig{Module: "tscnftest", Target: "tscnf_test", SourceMap: false, Excluding: 11}
 
 func Test_createByteConfig(t *testing.T) {
 	mongoWant, _ := json.Marshal(mongoWantStruct)

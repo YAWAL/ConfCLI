@@ -16,16 +16,20 @@ var deleteCmd = &cobra.Command{
 		conn, err := grpc.Dial(address, grpc.WithInsecure())
 		log.Printf("State: %v", conn.GetState())
 		if err != nil {
+			log.Printf("State: %v", conn.GetState())
 			log.Fatalf("Dial error has occurred: %v", err)
 		}
 		defer conn.Close()
 		client := api.NewConfigServiceClient(conn)
 		resp, err := client.DeleteConfig(context.Background(), &api.DeleteConfigRequest{ConfigType: configType, ConfigName: configName})
 		if err != nil {
+			log.Printf("State: %v", conn.GetState())
 			log.Printf("Error during client.DeleteConfig has occurred: %v", err)
 		}
 		if resp.Status == "" {
+			log.Printf("State: %v", conn.GetState())
 			log.Printf("Response status is empty: %v", resp.Status)
 		}
+		log.Printf("State: %v", conn.GetState())
 	},
 }
