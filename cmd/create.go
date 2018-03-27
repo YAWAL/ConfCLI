@@ -10,7 +10,7 @@ import (
 	"encoding/json"
 	"github.com/spf13/cobra"
 	"github.com/YAWAL/GetMeConfAPI/api"
-	"github.com/YAWAL/GetMeConf/entities"
+	"github.com/YAWAL/GetMeConf/entitie"
 )
 
 const trueRecord = "true"
@@ -19,14 +19,14 @@ const falseRecord = "false"
 func readConfig(fileName string) ([][]string) {
 	file, err := os.OpenFile(fileName, os.O_RDONLY, 0666)
 	if err != nil {
-		log.Fatalf("error during opening file has occurred: %v", err)
+		log.Fatalf("Error during opening file has occurred: %v", err)
 		return nil
 	}
 	defer file.Close()
 	reader := csv.NewReader(file)
 	records, err := reader.ReadAll()
 	if err != nil {
-		log.Fatalf("error during reading file has occurred: %v", err)
+		log.Fatalf("Error during reading file has occurred: %v", err)
 		return nil
 	}
 	return records
@@ -36,11 +36,10 @@ func createByteConfig(fileName string) []byte {
 	records := readConfig(fileName)
 	switch fileName {
 	case "mongo.csv":
-		var mongocnf entities.Mongodb
+		var mongocnf entitie.Mongodb
 		mongocnf.Domain = records[0][0]
-
 		if records[0][1] != trueRecord && records[0][1] != falseRecord {
-			log.Fatalf("field Mongodb should be true or false, but is: %v", records[0][1])
+			log.Fatalf("Field Mongodb should be true or false, but is: %v", records[0][1])
 			return nil
 		}
 		if records[0][1] == trueRecord {
@@ -56,15 +55,14 @@ func createByteConfig(fileName string) []byte {
 			log.Printf("Error during converting Mongodb structure to []byte has occurred: %v", err)
 		}
 		return bytesMongo
-
 	case "tempcnf.csv":
-		var tempcnf entities.Tempconfig
+		var tempcnf entitie.Tempconfig
 		tempcnf.RestApiRoot = records[0][0]
 		tempcnf.Host = records[0][1]
 		tempcnf.Port = records[0][2]
 		tempcnf.Remoting = records[0][3]
 		if records[0][4] != trueRecord && records[0][4] != falseRecord {
-			log.Fatalf("field legasyExplorer should be true or false, but is: %v", records[0][4])
+			log.Fatalf("Field legasyExplorer should be true or false, but is: %v", records[0][4])
 			return nil
 		}
 		if records[0][4] == trueRecord {
@@ -78,13 +76,12 @@ func createByteConfig(fileName string) []byte {
 			log.Printf("Error during converting Tempconfig structure to []byte has occurred: %v", err)
 		}
 		return bytesTempcnf
-
 	case "tscnf.csv":
-		var tscnf entities.Tsconfig
+		var tscnf entitie.Tsconfig
 		tscnf.Module = records[0][0]
 		tscnf.Target = records[0][1]
 		if records[0][2] != trueRecord && records[0][2] != falseRecord {
-			log.Printf("field sourceMap should be true or false, but is: %v", records[0][2])
+			log.Printf("Field sourceMap should be true or false, but is: %v", records[0][2])
 			return nil
 		}
 		if records[0][2] == trueRecord {
@@ -103,7 +100,6 @@ func createByteConfig(fileName string) []byte {
 			log.Printf("Error during converting Tsconfig structure to []byte has occurred: %v", err)
 		}
 		return bytesTscnf
-
 	default:
 		log.Printf("Cant find file: %v", fileName)
 	}
@@ -125,10 +121,13 @@ var createCmd = &cobra.Command{
 		config := createByteConfig(fileName)
 		resp, err := client.CreateConfig(context.Background(), &api.Config{Config: config, ConfigType: configType})
 		if err != nil {
+			log.Printf("State: %v", conn.GetState())
 			log.Printf("Error during client.CreateConfig has occurred: %v", err)
 		}
 		if resp.Status != "OK" {
+			log.Printf("State: %v", conn.GetState())
 			log.Printf("Error during creating config has occurred: %v response status: %v", err, resp.Status)
 		}
+		log.Printf("State: %v", conn.GetState())
 	},
 }
