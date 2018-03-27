@@ -19,3 +19,6 @@
 /static-analysis.xml
 /client
 /in/
+/cmd/tscnf.csv
+/cmd/tempcnf.csv
+/cmd/mongo.csv
