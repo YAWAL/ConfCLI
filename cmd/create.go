@@ -34,6 +34,7 @@ func readConfig(fileName string) ([][]string) {
 
 func createByteConfig(fileName string) []byte {
 	records := readConfig(fileName)
+	log.Printf("Start checking input data:\nFile name: %v\nConfig type: %v\n", fileName, configType)
 	switch fileName {
 	case "mongo.csv":
 		var mongocnf entitie.Mongodb
@@ -128,6 +129,7 @@ var createCmd = &cobra.Command{
 			log.Printf("State: %v", conn.GetState())
 			log.Printf("Error during creating config has occurred: %v response status: %v", err, resp.Status)
 		}
+		log.Printf("Config: %v has been created", configType)
 		log.Printf("State: %v", conn.GetState())
 	},
 }
