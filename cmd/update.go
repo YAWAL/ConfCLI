@@ -31,7 +31,7 @@ var updateCmd = &cobra.Command{
 			log.Printf("State: %v", conn.GetState())
 			log.Printf("Error during creating config has occurred: %v response status: %v", err, resp.Status)
 		}
-		log.Printf("Response: %v", resp.Status)
+		log.Printf("Response:%v Config: %v has been updated", resp.Status, configType)
 		log.Printf("State: %v", conn.GetState())
 	},
 }
