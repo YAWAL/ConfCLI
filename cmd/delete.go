@@ -30,6 +30,8 @@ var deleteCmd = &cobra.Command{
 			log.Printf("State: %v", conn.GetState())
 			log.Printf("Response status is empty: %v", resp.Status)
 		}
+		log.Printf("Config name: %v, cofig type: %v\n", configName, configType)
+		log.Printf("Response status: %v", resp.Status)
 		log.Printf("State: %v", conn.GetState())
 	},
 }
