@@ -16,11 +16,6 @@ pipeline{
                  sh 'make tests || true'
              }
         }
-        stage('Sonar'){
-              steps{
-                  sh 'make sonar-scanner'
-              }
-        }
 
 
     }
