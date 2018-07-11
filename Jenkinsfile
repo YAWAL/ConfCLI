@@ -18,7 +18,7 @@ pipeline{
         }
         stage('Sonar'){
                     steps{
-                        echo 'make sonar-scanner'
+                        'make sonar-scanner'
                     }
         }
         post {
