@@ -1,6 +1,6 @@
-projectKey=erp1
+projectKey=com.company.projectkey1
 serverUrl=http://localhost:9000
 serverVersion=6.7.4.38452
-dashboardUrl=http://localhost:9000/dashboard/index/erp1
-ceTaskId=AWSImUYtGpOn0snYIK_k
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWSImUYtGpOn0snYIK_k
+dashboardUrl=http://localhost:9000/dashboard/index/com.company.projectkey1
+ceTaskId=AWSJX96koFAfTU2sjkYp
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWSJX96koFAfTU2sjkYp

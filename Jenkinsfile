@@ -23,7 +23,7 @@ pipeline{
         }
         post {
             failure{
-            mail to: yavorskyyval@gmail.com, subject: 'jenkins'
+                mail to: yavorskyyval@gmail.com, subject: 'jenkins :('
             }
         }
 
