@@ -17,9 +17,9 @@ pipeline{
              }
         }
         stage('Sonar'){
-                    steps{
-                        'make sonar-scanner'
-                    }
+              steps{
+                  'make sonar-scanner'
+              }
         }
 
 
