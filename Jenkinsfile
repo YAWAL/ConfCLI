@@ -20,7 +20,12 @@ pipeline{
                     steps{
                         echo 'make sonar-scanner'
                     }
-                }
+        }
+        post {
+            failure{
+            mail to: yavorskyyval@gmail.com, subject: 'jenkins'
+            }
+        }
 
     }
 
