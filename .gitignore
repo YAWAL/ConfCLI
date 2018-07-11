@@ -15,7 +15,7 @@
 /client/client
 /vendor/
 .idea
-ConfCLI
+
 /static-analysis.xml
 /client
 /in/
