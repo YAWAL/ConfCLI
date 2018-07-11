@@ -6,7 +6,7 @@ pipeline{
         stage('Build'){
               steps{
                   sh 'make build'
-                  archiveArtifacts artifact: 'ConfCLI', fingerprint: true
+                  archiveArtifacts artifacts: 'ConfCLI', fingerprint: true
               }
         }
         stage('Test'){
