@@ -19,7 +19,7 @@ tests: dependencies
 	echo "Tests"
 	go test ./cmd
 
-build:
+build: dependencies
 	echo "Build"
 	go build
 
