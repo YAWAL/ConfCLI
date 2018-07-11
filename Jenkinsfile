@@ -5,6 +5,7 @@ pipeline{
     stages{
         stage('Build'){
               steps{
+                  sh 'make install-helpers'
                   sh 'make build || true'
                   archiveArtifacts artifacts: 'ConfCLI', fingerprint: true
               }
