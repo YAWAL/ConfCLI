@@ -6,17 +6,17 @@ pipeline{
 
         stage('Test'){
              steps{
-                 sh 'make'
+                 echo 'make'
              }
         }
         stage('Sonar'){
                     steps{
-                        sh 'make sonar-scanner'
+                        echo 'make sonar-scanner'
                     }
                 }
         stage('Build'){
                     steps{
-                        sh 'make build'
+                        echo 'make build'
                     }
                 }
     }
