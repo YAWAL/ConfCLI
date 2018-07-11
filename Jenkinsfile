@@ -5,7 +5,7 @@ pipeline{
 
         stage('Test'){
              steps{
-                 sh 'make tests'
+                 sh 'make'
              }
         }
         stage('Sonar'){
