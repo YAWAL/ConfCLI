@@ -3,10 +3,15 @@ pipeline{
     agent any
 
     stages{
-
+        stage('Build'){
+              steps{
+                  sh 'make build'
+                  archiveArtifacts artifact: 'ConfCLI', fingerprint: true
+              }
+        }
         stage('Test'){
              steps{
-                 echo 'make'
+                 sh 'make tests || true'
              }
         }
         stage('Sonar'){
@@ -14,11 +19,7 @@ pipeline{
                         echo 'make sonar-scanner'
                     }
                 }
-        stage('Build'){
-                    steps{
-                        echo 'make build'
-                    }
-                }
+
     }
 
 
